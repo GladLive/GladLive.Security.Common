@@ -27,17 +27,17 @@ namespace GladLive.Security.Common.Cert
 			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
 			{
 
-//If this is core clr or dnx46 then the API differs from lower dnx or .net
+				//If this is core clr or dnx46 then the API differs from lower dnx or .net
 #if DNXCORE50 || DNX46
 				provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(false));
-	#if DNX46
+#if DNX46
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
-	#elif DNXCORE50
+#elif DNXCORE50
 				//core doesn't have cryptoconfig so we must use hash name (maybe)
 				return provider.VerifyData(message, HashAlgorithmName.SHA256, signedMessage);
-	#endif
+#endif
 
-#elif DNX451 || NET45
+#elif DNX451 || NET45 || NET451
 				provider.FromXmlString(cert.PrivateKey.ToXmlString(false));
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
 #else
@@ -53,26 +53,20 @@ namespace GladLive.Security.Common.Cert
 
 		public byte[] SignMessage(byte[] message)
 		{
-			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
-			{
+
 
 #if DNXCORE50 || DNX46
-
-				provider.ImportParameters(cert.GetRSAPrivateKey().ExportParameters(true));
-	#if DNX46
-				return provider.SignData(message, CryptoConfig.MapNameToOID("SHA256"));
-	#elif DNXCORE50
-				return provider.SignData(message, HashAlgorithmName.SHA256);
-#endif
-
-#elif DNX451 || NET45
+				return cert.GetRSAPrivateKey().SignData(message, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+#elif DNX451 || NET45 || NET451
+			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
+			{
 				provider.FromXmlString(cert.PrivateKey.ToXmlString(true));
 
 				return provider.SignData(message, CryptoConfig.MapNameToOID("SHA256"));
-#else
-				throw new NotSupportedException("The current runtime/clr does not support " + nameof(SignMessage) + " in class " + this.GetType());
-#endif
 			}
+#else
+			throw new NotSupportedException("The current runtime/clr does not support " + nameof(SignMessage) + " in class " + this.GetType());
+#endif
 		}
 
 		public byte[] SignMessage(string message)
