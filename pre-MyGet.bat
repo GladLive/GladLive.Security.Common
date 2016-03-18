@@ -1,9 +1,9 @@
 cd ./src/GladLive.Security.Common
-dnu restore
+call dnu restore
 cd ..
 cd ..
 
 cd ./tests/GladLive.Security.Common.Tests
-dnu restore
+call dnu restore
 cd ..
 cd ..
