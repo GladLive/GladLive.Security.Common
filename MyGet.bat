@@ -1,0 +1,1 @@
+msbuild GladLive.Security.Common.sln
