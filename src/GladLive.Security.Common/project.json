@@ -1,0 +1,32 @@
+﻿{
+	"version": "1.0.0-*",
+	"description": "GladLive.Security.Common Class Library",
+	"authors": [ "Glader" ],
+	"tags": [ "" ],
+	"projectUrl": "",
+	"licenseUrl": "",
+
+	"frameworks": {
+		"net45": { },
+		"dnx451": {
+			"dependencies": {
+			}
+		},
+		"dnxcore50": {
+			"dependencies": {
+				"System.Security.Cryptography.Hashing": "4.0.0-beta-23206",
+				"System.Security.Cryptography.RSA": "4.0.0-beta-23206",
+				"System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420"
+			}
+		}
+	},
+
+	"dependencies": {
+		"Microsoft.CSharp": "4.0.1-beta-23516",
+		"System.Collections": "4.0.11-beta-23516",
+		"System.Linq": "4.0.1-beta-23516",
+		"System.Runtime": "4.0.21-beta-23516",
+		"System.Threading": "4.0.11-beta-23516"
+
+	}
+}
