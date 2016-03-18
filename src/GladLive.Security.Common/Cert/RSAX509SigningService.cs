@@ -26,7 +26,6 @@ namespace GladLive.Security.Common.Cert
 		{
 			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
 			{
-
 				//If this is core clr or dnx46 then the API differs from lower dnx or .net
 #if DNXCORE50 || DNX46
 				provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(false));
