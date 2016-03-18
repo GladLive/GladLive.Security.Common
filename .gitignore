@@ -160,7 +160,10 @@ ClientBin/
 *~
 *.dbmdl
 *.dbproj.schemaview
+
+# This prevents pushes of certs, but we want test certs to push though
 *.pfx
+!TestCert.pfx
 *.publishsettings
 node_modules/
 bower_components/
