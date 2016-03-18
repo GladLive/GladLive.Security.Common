@@ -8,14 +8,8 @@
 
 	"frameworks": {
 		"net45": { },
-		"net451": { },
 		"dnx451": {
 			"dependencies": {
-			}
-		},
-		"dnx46": {
-			"dependencies": {
-				"System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423"
 			}
 		},
 		"dnxcore50": {

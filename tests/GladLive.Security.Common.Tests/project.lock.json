@@ -90,7 +90,7 @@
     ".NETFramework,Version=v4.5.1": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
@@ -481,13 +481,12 @@
     "DNX,Version=v4.6": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.6",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
@@ -2116,7 +2115,7 @@
     ".NETFramework,Version=v4.5.1/win7-x86": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
@@ -2204,7 +2203,7 @@
     ".NETFramework,Version=v4.5.1/win7-x64": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5.1",
+        "framework": ".NETFramework,Version=v4.5",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
@@ -2922,13 +2921,12 @@
     "DNX,Version=v4.6/win7-x86": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.6",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
@@ -3397,13 +3395,12 @@
     "DNX,Version=v4.6/win7-x64": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": "DNX,Version=v4.6",
+        "framework": "DNX,Version=v4.5.1",
         "dependencies": {
           "Microsoft.CSharp": "4.0.1-beta-23516",
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
