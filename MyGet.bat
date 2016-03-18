@@ -1,1 +1,1 @@
-msbuild ./src/GladLive.Security.Common/GladLive.Security.Common.csproj
+msbuild GladLive.Security.Common.sln
