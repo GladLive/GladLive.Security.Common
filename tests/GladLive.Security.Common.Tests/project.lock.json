@@ -487,7 +487,7 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
@@ -929,8 +929,8 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.Hashing": "4.0.0-beta-23311",
-          "System.Security.Cryptography.RSA": "4.0.0-beta-23311",
+          "System.Security.Cryptography.Hashing": "4.0.0-beta-23206",
+          "System.Security.Cryptography.RSA": "4.0.0-beta-23206",
           "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
           "System.Threading": "4.0.11-beta-23516"
         }
@@ -2928,7 +2928,7 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
@@ -3403,7 +3403,7 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
+          "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23423",
           "System.Threading": "4.0.11-beta-23516"
         }
       },
@@ -3878,8 +3878,8 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.Hashing": "4.0.0-beta-23311",
-          "System.Security.Cryptography.RSA": "4.0.0-beta-23311",
+          "System.Security.Cryptography.Hashing": "4.0.0-beta-23206",
+          "System.Security.Cryptography.RSA": "4.0.0-beta-23206",
           "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
           "System.Threading": "4.0.11-beta-23516"
         }
@@ -5341,8 +5341,8 @@
           "System.Collections": "4.0.11-beta-23516",
           "System.Linq": "4.0.1-beta-23516",
           "System.Runtime": "4.0.21-beta-23516",
-          "System.Security.Cryptography.Hashing": "4.0.0-beta-23311",
-          "System.Security.Cryptography.RSA": "4.0.0-beta-23311",
+          "System.Security.Cryptography.Hashing": "4.0.0-beta-23206",
+          "System.Security.Cryptography.RSA": "4.0.0-beta-23206",
           "System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
           "System.Threading": "4.0.11-beta-23516"
         }

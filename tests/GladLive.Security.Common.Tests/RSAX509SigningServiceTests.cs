@@ -40,6 +40,18 @@ namespace GladLive.Security.Common.Tests
 			byte[] bytes = signer.SignMessage("hello");
 
 			Assert.True(signer.isSigned("hello", bytes));
+			
+		}
+
+		[Fact]
+		public static void Test_Sign_Message_Fails_After_Failed_Signing()
+		{
+			//Create the signing service
+			RSAX509SigningService signer = new RSAX509SigningService(LoadTestCert());
+
+			//act
+			byte[] bytes = signer.SignMessage("derp");
+
 			Assert.False(signer.isSigned("this should fail", bytes));
 		}
 
