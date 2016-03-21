@@ -6,9 +6,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GladLive.Security.Common.Cert
+namespace GladLive.Security.Common
 {
-	public class RSAX509SigningService
+	public class RSAX509SigningService : ISigningService
 	{
 		private X509Certificate2 cert { get; }
 
