@@ -6,9 +6,9 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GladLive.Security.Common.Cert
+namespace GladLive.Security.Common
 {
-	public class RSAX509SigningService
+	public class RSAX509SigningService : ISigningService
 	{
 		private X509Certificate2 cert { get; }
 
@@ -26,7 +26,6 @@ namespace GladLive.Security.Common.Cert
 		{
 			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
 			{
-
 				//If this is core clr or dnx46 then the API differs from lower dnx or .net
 #if DNXCORE50 || DNX46
 				provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(false));
