@@ -33,7 +33,7 @@ namespace GladLive.Security.Common
 #endif
 
 #if DNX451 || NET45 || NET451
-			Provider.FromXmlString(cert.PrivateKey.ToXmlString(false));
+			Provider.FromXmlString(cert.PrivateKey.ToXmlString(includePrivateKey));
 #endif
 		}
 	}
