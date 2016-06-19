@@ -28,15 +28,6 @@
 				"xunit.runner.dnx": "2.1.0-rc1-build204",
 				"xunit": "2.1.0"
 			}
-		},
-		"dnxcore50": {
-			"dependencies": {
-				"System.Security.Cryptography.Hashing": "4.0.0-beta-23311",
-				"System.Security.Cryptography.RSA": "4.0.0-beta-23311",
-				"System.Security.Cryptography.X509Certificates": "4.0.0-beta-23420",
-				"xunit.runner.dnx": "2.1.0-rc1-build204",
-				"xunit": "2.1.0"
-			}
 		}
 	},
 
