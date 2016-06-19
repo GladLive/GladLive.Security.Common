@@ -24,11 +24,9 @@ namespace GladLive.Security.Common
 
 		public bool isSigned(byte[] message, byte[] signedMessage)
 		{
-			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
+			using (RSACryptoServiceProvider provider = new CertToRSAProviderConverter(cert, false).Provider)
 			{
 				//If this is core clr or dnx46 then the API differs from lower dnx or .net
-#if DNXCORE50 || DNX46
-				provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(false));
 #if DNX46
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
 #elif DNXCORE50
@@ -36,8 +34,7 @@ namespace GladLive.Security.Common
 				return provider.VerifyData(message, HashAlgorithmName.SHA256, signedMessage);
 #endif
 
-#elif DNX451 || NET45 || NET451
-				provider.FromXmlString(cert.PrivateKey.ToXmlString(false));
+#if DNX451 || NET45 || NET451
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
 #else
 				throw new NotSupportedException("The current runtime/clr does not support " + nameof(isSigned) + " in class " + this.GetType());
