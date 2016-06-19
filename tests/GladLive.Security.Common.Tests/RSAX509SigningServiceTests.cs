@@ -54,7 +54,7 @@ namespace GladLive.Security.Common.Tests
 			Assert.False(signer.isSigned("this should fail", bytes));
 		}
 
-		private static X509Certificate2 LoadTestCert()
+		public static X509Certificate2 LoadTestCert()
 		{
 			byte[] certBytes = null;
 
