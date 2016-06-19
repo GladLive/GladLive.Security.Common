@@ -25,6 +25,9 @@ namespace GladLive.Security.Common
 		/// <param name="includePrivateKey">Indicates if the private key should be included.</param>
 		public CertToRSAProviderConverter(X509Certificate2 cert, bool includePrivateKey)
 		{
+			//Don't do a using or dispose. Let the consumers of this class deal with that.
+			Provider = new RSACryptoServiceProvider();
+
 #if DNXCORE50 || DNX46
 			Provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(includePrivateKey));
 #endif
