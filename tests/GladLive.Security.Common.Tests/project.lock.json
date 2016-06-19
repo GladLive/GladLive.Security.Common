@@ -5,14 +5,7 @@
     ".NETFramework,Version=v4.5": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
@@ -87,14 +80,7 @@
     ".NETFramework,Version=v4.5.1": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
@@ -478,14 +464,7 @@
     ".NETFramework,Version=v4.5/win7-x86": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
@@ -566,14 +545,7 @@
     ".NETFramework,Version=v4.5/win7-x64": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
@@ -654,14 +626,7 @@
     ".NETFramework,Version=v4.5.1/win7-x86": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
@@ -742,14 +707,7 @@
     ".NETFramework,Version=v4.5.1/win7-x64": {
       "GladLive.Security.Common/1.0.0": {
         "type": "project",
-        "framework": ".NETFramework,Version=v4.5",
-        "dependencies": {
-          "Microsoft.CSharp": "4.0.1-beta-23516",
-          "System.Collections": "4.0.11-beta-23516",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Runtime": "4.0.21-beta-23516",
-          "System.Threading": "4.0.11-beta-23516"
-        }
+        "framework": ".NETFramework,Version=v4.5"
       },
       "Microsoft.CSharp/4.0.1-beta-23516": {
         "type": "package",
