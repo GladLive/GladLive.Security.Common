@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+#if !NET35
 using System.Threading.Tasks;
+#endif
 
 namespace GladLive.Security.Common
 {

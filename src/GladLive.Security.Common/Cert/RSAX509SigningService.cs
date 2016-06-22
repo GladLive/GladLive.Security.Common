@@ -4,7 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+#if !NET35
 using System.Threading.Tasks;
+#endif
 
 namespace GladLive.Security.Common
 {

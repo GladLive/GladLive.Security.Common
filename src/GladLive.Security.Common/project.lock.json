@@ -2,6 +2,7 @@
   "locked": false,
   "version": 2,
   "targets": {
+    ".NETFramework,Version=v3.5": {},
     ".NETFramework,Version=v4.5": {},
     "DNX,Version=v4.5.1": {
       "Microsoft.CSharp/4.0.1-beta-23516": {
@@ -53,6 +54,8 @@
         }
       }
     },
+    ".NETFramework,Version=v3.5/win7-x86": {},
+    ".NETFramework,Version=v3.5/win7-x64": {},
     ".NETFramework,Version=v4.5/win7-x86": {},
     ".NETFramework,Version=v4.5/win7-x64": {},
     "DNX,Version=v4.5.1/win7-x86": {
@@ -473,6 +476,7 @@
   },
   "projectFileDependencyGroups": {
     "": [],
+    ".NETFramework,Version=v3.5": [],
     ".NETFramework,Version=v4.5": [],
     "DNX,Version=v4.5.1": [
       "Microsoft.CSharp >= 4.0.1-beta-23516",
