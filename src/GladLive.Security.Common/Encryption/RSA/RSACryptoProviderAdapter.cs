@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+#if !NET35
 using System.Threading.Tasks;
+#endif
 
 namespace GladLive.Security.Common
 {
@@ -20,7 +22,11 @@ namespace GladLive.Security.Common
 		/// <summary>
 		/// Service provider for .NET RSA implementation that used the <see cref="keyPair"/>.
 		/// </summary>
+#if !NET35
 		private Lazy<RSACryptoServiceProvider> provider;
+#else
+		private RSACryptoServiceProvider provider;
+#endif
 
 		public RSACryptoProviderAdapter(RSAKeyPair keys)
 		{
@@ -28,7 +34,12 @@ namespace GladLive.Security.Common
 				throw new ArgumentNullException(nameof(keys), "Key pair cannot be null for " + nameof(RSACryptoProviderAdapter));
 
 			keyPair = keys;
+
+#if !NET35
 			provider = new Lazy<RSACryptoServiceProvider>(CreateProvider, true);
+#else
+			provider = CreateProvider();
+#endif
 		}
 
 		private RSACryptoServiceProvider CreateProvider()
@@ -50,7 +61,11 @@ namespace GladLive.Security.Common
 			if (keyPair.isOnlyPublic)
 				throw new InvalidOperationException("Cannot decrypt with only public key.");
 
+#if !NET35
 			return provider.Value.Decrypt(decrypt, true);
+#else
+			return provider.Decrypt(decrypt, true);
+#endif
 		}
 
 		/// <summary>
@@ -63,7 +78,12 @@ namespace GladLive.Security.Common
 			if (keyPair.isOnlyPublic)
 				throw new InvalidOperationException("Cannot decrypt with only public key.");
 
+#if !NET35
 			return Encoding.Unicode.GetString(provider.Value.Decrypt(decrypt, true));
+#else
+			return Encoding.Unicode.GetString(provider.Decrypt(decrypt, true));
+
+#endif
 		}
 
 		/// <summary>
@@ -73,7 +93,11 @@ namespace GladLive.Security.Common
 		/// <returns>Encrypted <see cref="string"/> in the form of a <see cref="byte"/> array.</returns>
 		public byte[] Encrypt(string encrypt)
 		{
+#if !NET35
 			return provider.Value.Encrypt(Encoding.Unicode.GetBytes(encrypt), true);
+#else
+			return provider.Encrypt(Encoding.Unicode.GetBytes(encrypt), true);
+#endif
 		}
 
 		/// <summary>
@@ -83,11 +107,17 @@ namespace GladLive.Security.Common
 		/// <returns>Encrypted <see cref="byte"/> array in the form of a <see cref="byte"/> array.</returns>
 		public byte[] Encrypt(byte[] encrypt)
 		{
+#if !NET35
 			return provider.Value.Encrypt(encrypt, true);
+#else
+			return provider.Encrypt(encrypt, true);
+
+#endif
 		}
 
 		public void Dispose()
 		{
+#if !NET35
 			if (provider.IsValueCreated)
 			{
 #if !DNXCORE50
@@ -95,7 +125,11 @@ namespace GladLive.Security.Common
 #else
 				provider.Value.Dispose();
 #endif
-			}	
+			}
+#else
+			if (provider != null)
+				provider.Clear();
+#endif
 		}
 	}
 }

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
+#if !NET35
 using System.Threading.Tasks;
+#endif
 
 namespace GladLive.Security.Common
 {
@@ -39,6 +42,7 @@ namespace GladLive.Security.Common
 		byte[] Encrypt(string encrypt);
 	}
 
+#if !NET35
 	public interface ICryptoServiceAsync
 	{
 		/// <summary>
@@ -69,4 +73,5 @@ namespace GladLive.Security.Common
 		/// <returns>Encrypted <see cref="string"/> in the form of a <see cref="byte"/> array.</returns>
 		Task<byte[]> EncryptAsync(string encrypt);
 	}
+#endif
 }
