@@ -14,6 +14,7 @@ namespace GladLive.Security.Common
 	/// </summary>
 	public class RSACryptoProviderAdapter : ICryptoService, IDisposable
 	{
+#if !NET35
 		/// <summary>
 		/// Internal keypair used for decryption.
 		/// </summary>
@@ -22,21 +23,45 @@ namespace GladLive.Security.Common
 		/// <summary>
 		/// Service provider for .NET RSA implementation that used the <see cref="keyPair"/>.
 		/// </summary>
-#if !NET35
 		private Lazy<RSACryptoServiceProvider> provider;
 #else
+		/// <summary>
+		/// Service provider for .NET RSA implementation that used the <see cref="keyPair"/>.
+		/// </summary>
 		private RSACryptoServiceProvider provider;
 #endif
 
+		/// <summary>
+		/// Creates a new <see cref="RSACryptoProviderAdapter"/> service with the provided <see cref="RSAKeyPair"/>
+		/// data.
+		/// </summary>
+		/// <param name="keys">RSA keys to use for the service.</param>
 		public RSACryptoProviderAdapter(RSAKeyPair keys)
 		{
 			if (keys == null)
 				throw new ArgumentNullException(nameof(keys), "Key pair cannot be null for " + nameof(RSACryptoProviderAdapter));
 
+#if !NET35
 			keyPair = keys;
+			provider = new Lazy<RSACryptoServiceProvider>(CreateProvider, true);
+#else
+			provider = CreateProvider();
+#endif
+		}
+
+		/// <summary>
+		/// Creates a new <see cref="RSACryptoProviderAdapter"/> service with the provided <see cref="RSAKeyPair"/>
+		/// data.
+		/// </summary>
+		/// <param name="keys">RSA keys to use for the service.</param>
+		public RSACryptoProviderAdapter(RSACryptoServiceProvider cryptoProvider)
+		{
+			if (cryptoProvider == null)
+				throw new ArgumentNullException(nameof(cryptoProvider), $"{cryptoProvider} cannot be null for " + nameof(RSACryptoProviderAdapter));
 
 #if !NET35
-			provider = new Lazy<RSACryptoServiceProvider>(CreateProvider, true);
+			keyPair = new RSAKeyPair(cryptoProvider.ExportParameters(true));
+			provider = new Lazy<RSACryptoServiceProvider>(() => cryptoProvider);
 #else
 			provider = CreateProvider();
 #endif
@@ -46,7 +71,9 @@ namespace GladLive.Security.Common
 		{
 			RSACryptoServiceProvider p = new RSACryptoServiceProvider();
 
+#if !NET35
 			p.ImportParameters(keyPair.RSAParameters);
+#endif
 
 			return p;
 		}
@@ -58,7 +85,11 @@ namespace GladLive.Security.Common
 		/// <returns>A decrypted <see cref="byte"/> array or null.</returns>
 		public byte[] Decrypt(byte[] decrypt)
 		{
+#if !NET35
 			if (keyPair.isOnlyPublic)
+#else
+			if(provider.PublicOnly)
+#endif
 				throw new InvalidOperationException("Cannot decrypt with only public key.");
 
 #if !NET35
@@ -75,7 +106,11 @@ namespace GladLive.Security.Common
 		/// <returns>A decrypted <see cref="string"/> or null.</returns>
 		public string DecryptToString(byte[] decrypt)
 		{
+#if !NET35
 			if (keyPair.isOnlyPublic)
+#else
+			if (provider.PublicOnly)
+#endif
 				throw new InvalidOperationException("Cannot decrypt with only public key.");
 
 #if !NET35
