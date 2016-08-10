@@ -1,1 +1,1 @@
-msbuild GladLive.Security.Common.sln
+dotnet pack src/GladLive.Security.Common/ -c Release
