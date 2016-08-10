@@ -5,7 +5,6 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 using System.Runtime;
 
@@ -60,8 +59,13 @@ namespace GladLive.Security.Common.Tests
 
 			try
 			{
+#if !NET35
 				using (Stream inputStream = typeof(RSAX509SigningServiceTests).GetTypeInfo().Assembly.GetManifestResourceStream(nameof(GladLive.Security.Common.Tests) + ".TestCert.pfx"))
 				{
+#else
+				using (Stream inputStream = typeof(RSAX509SigningServiceTests).Assembly.GetManifestResourceStream(nameof(GladLive.Security.Common.Tests) + ".TestCert.pfx"))
+				{
+#endif
 					certBytes = new byte[inputStream.Length];
 					inputStream.Read(certBytes, 0, (int)inputStream.Length);
 				}

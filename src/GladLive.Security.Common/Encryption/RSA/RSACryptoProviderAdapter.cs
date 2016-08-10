@@ -155,7 +155,7 @@ namespace GladLive.Security.Common
 #if !NET35
 			if (provider.IsValueCreated)
 			{
-#if !DNXCORE50
+#if !NETSTANDARD1_6
 				provider.Value.Clear();
 #else
 				provider.Value.Dispose();

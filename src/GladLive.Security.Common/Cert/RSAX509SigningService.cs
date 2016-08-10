@@ -12,6 +12,9 @@ namespace GladLive.Security.Common
 {
 	public class RSAX509SigningService : ISigningService
 	{
+		/// <summary>
+		/// The loaded <see cref="X509Certificate2"/>.
+		/// </summary>
 		private X509Certificate2 cert { get; }
 
 		public RSAX509SigningService(string certPath)
@@ -28,15 +31,14 @@ namespace GladLive.Security.Common
 		{
 			using (RSACryptoServiceProvider provider = new CertToRSAProviderConverter(cert, false).Provider)
 			{
-				//If this is core clr or dnx46 then the API differs from lower dnx or .net
-#if DNX46
+#if NET46
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
-#elif DNXCORE50
+#elif NETSTANDARD1_6
 				//core doesn't have cryptoconfig so we must use hash name (maybe)
 				return provider.VerifyData(message, HashAlgorithmName.SHA256, signedMessage);
 #endif
 
-#if DNX451 || NET45 || NET451
+#if !NETSTANDARD1_6
 				return provider.VerifyData(message, CryptoConfig.MapNameToOID("SHA256"), signedMessage);
 #else
 				throw new NotSupportedException("The current runtime/clr does not support " + nameof(isSigned) + " in class " + this.GetType());
@@ -53,9 +55,9 @@ namespace GladLive.Security.Common
 		{
 
 
-#if DNXCORE50 || DNX46
+#if NETSTANDARD1_6 || NET46
 				return cert.GetRSAPrivateKey().SignData(message, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-#elif DNX451 || NET45 || NET451
+#elif NET451 || NET45 || NET35 || NET452
 			using (RSACryptoServiceProvider provider = new RSACryptoServiceProvider())
 			{
 				provider.FromXmlString(cert.PrivateKey.ToXmlString(true));

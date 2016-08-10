@@ -30,11 +30,11 @@ namespace GladLive.Security.Common
 			//Don't do a using or dispose. Let the consumers of this class deal with that.
 			Provider = new RSACryptoServiceProvider();
 
-#if DNXCORE50 || DNX46
+#if NETSTANDARD1_6
 			Provider.ImportParameters(cert.GetRSAPublicKey().ExportParameters(includePrivateKey));
 #endif
 
-#if DNX451 || NET45 || NET451
+#if NET451 || NET45 || NET35 || NET452 || NET46
 			Provider.FromXmlString(cert.PrivateKey.ToXmlString(includePrivateKey));
 #endif
 		}
