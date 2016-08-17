@@ -2,8 +2,7 @@
 	"version": "1.0.0-*",
 
 	"dependencies": {
-		"GladLive.Security.Common": "1.0.0-*",
-		"NETStandard.Library": "1.6.0"
+		"GladLive.Security.Common": "1.0.0-*"
 	},
 
 	"testRunner": "xunit",
